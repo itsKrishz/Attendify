@@ -16,6 +16,7 @@ for(var i =0;i<clubs.length;i++){
     }
 }
 
+
 if (!currentClub) {
     alert("Club not found. Please login again.");
     window.location.href = "login.html";
