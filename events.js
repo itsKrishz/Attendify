@@ -102,5 +102,5 @@ var logoutBtn = document.getElementById("logoutBtn");
 
 logoutBtn.onclick = function () {
     localStorage.removeItem("loggedInClub");
-    window.location.href = "login.html";
+    window.location.href = "index.html";
 };
