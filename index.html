@@ -3,36 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Attendify</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="login-container">
-    <h1 style="text-align: center;">Attendify</h1>
+<header>
+    <div class="logo">
+        <a href="index.html">Attendify</a>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#demo">Demo</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+    <div class="auth-buttons">
+        <button id="loginBtnHeader">Login</button>
+        <button id="signupBtnHeader">Sign Up</button>
+    </div>
+</header>
 
-    <div class="input-group">
-        <input type="text" id="clubId" placeholder="Club ID">
-        <div class="password-wrapper">
-            <input type="password" id="password" placeholder="Password">
-            <span id="togglePassword">
-                <svg id="eyeOpen" xmlns="http://www.w3.org/2000/svg" width="15" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                    <circle cx="12" cy="12" r="3"/>
-                </svg>
+<main>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Attendify</h1>
+            <p>A centralized digital system that simplifies the entire workflow of managing college events.</p>
+            <a href="#features" class="cta-button">Learn More</a>
+        </div>
+    </section>
 
-                <svg id="eyeClosed" xmlns="http://www.w3.org/2000/svg" width="15" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:none;">
-                    <path d="M17.94 17.94A10.94 10.94 0 0 1 12 20c-7 0-11-8-11-8a21.77 21.77 0 0 1 5.06-6.94"/>
-                    <path d="M1 1l22 22"/>
-                    <path d="M9.53 9.53A3 3 0 0 0 12 15a3 3 0 0 0 2.47-5.47"/>
-                </svg>
-            </span>
+    <section id="features" class="features">
+        <h2>Features</h2>
+        <div class="feature-cards">
+            <div class="card">
+                <h3>Event Management</h3>
+                <p>Organize and manage all your college events in one place.</p>
+            </div>
+            <div class="card">
+                <h3>Attendance Tracking</h3>
+                <p>Easily track attendance for all your events.</p>
+            </div>
+            <div class="card">
+                <h3>Certificate Distribution</h3>
+                <p>Automate the distribution of certificates to attendees.</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; itsKrishz - Attendify.</p>
+</footer>
+
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="login-container">
+            <h1>Login</h1>
+            <div class="input-group">
+                <input type="text" id="clubId" placeholder="Club ID">
+                <div class="password-wrapper">
+                    <input type="password" id="password" placeholder="Password">
+                    <span id="togglePassword">
+                        <svg id="eyeOpen" xmlns="http://www.w3.org/2000/svg" width="15" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                            <circle cx="12" cy="12" r="3"/>
+                        </svg>
+                        <svg id="eyeClosed" xmlns="http://www.w3.org/2000/svg" width="15" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:none;">
+                            <path d="M17.94 17.94A10.94 10.94 0 0 1 12 20c-7 0-11-8-11-8a21.77 21.77 0 0 1 5.06-6.94"/>
+                            <path d="M1 1l22 22"/>
+                            <path d="M9.53 9.53A3 3 0 0 0 12 15a3 3 0 0 0 2.47-5.47"/>
+                        </svg>
+                    </span>
+                </div>
+            </div>
+            <div class="button-group">
+                <button id="loginBtn">Login</button>
+            </div>
         </div>
     </div>
+</div>
 
-    <div class="button-group">
-        <button id="loginBtn">Login</button>
-        <button id="signupBtn">Sign Up</button>
+<div id="signupModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="login-container">
+            <h1>Sign Up</h1>
+            <div class="input-group">
+                <input type="text" id="signupClubId" placeholder="Club ID">
+                <input type="password" id="signupPassword" placeholder="Password">
+            </div>
+            <div class="button-group">
+                <button id="signupBtn">Sign Up</button>
+            </div>
+        </div>
     </div>
 </div>
 
