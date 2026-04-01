@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;500;600;700&display=swap');
 
-/* ─── CSS Variables ─────────────────────────────────────────── */
 :root {
   --bg-base:        #0d0d14;
   --bg-surface:     #13131f;
@@ -34,7 +33,6 @@
   --shadow-glow:    0 0 24px var(--accent-glow);
 }
 
-/* ─── Reset & Base ──────────────────────────────────────────── */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -60,7 +58,6 @@ body {
     var(--bg-base);
 }
 
-/* ─── Typography ────────────────────────────────────────────── */
 h1 {
   font-family: var(--font-display);
   font-size: clamp(28px, 5vw, 42px);
@@ -84,7 +81,6 @@ h2 {
   letter-spacing: -0.3px;
 }
 
-/* ─── Inputs ────────────────────────────────────────────────── */
 input[type="text"],
 input[type="password"] {
   font-family: var(--font-body);
@@ -162,7 +158,6 @@ button:active {
   opacity: 1;
 }
 
-/* Ghost / secondary buttons */
 #backBtn,
 #logoutBtn {
   background: transparent;
@@ -191,7 +186,6 @@ button:active {
   right: 14px;
 }
 
-/* Export / Save buttons */
 #saveCSV,
 #saveAttendance {
   background: transparent;
@@ -206,7 +200,6 @@ button:active {
   opacity: 1;
 }
 
-/* ─── Login Page ────────────────────────────────────────────── */
 .login-container {
   width: 340px;
   padding: 40px;
@@ -244,6 +237,42 @@ button:active {
   margin-left: 2px;
   cursor: pointer;
 }
+.password-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+ 
+.password-wrapper input {
+  width: 100%;
+  padding-right: 44px;
+  margin: 0;
+}
+ 
+#togglePassword {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+  background: none;
+  border: none;
+  padding: 0;
+  box-shadow: none;
+}
+ 
+#togglePassword:hover {
+  color: var(--accent-soft);
+  transform: translateY(-50%);
+  box-shadow: none;
+  opacity: 1;
+}
+
 
 .button-group {
   display: flex;
@@ -270,7 +299,6 @@ button:active {
   box-shadow: 0 0 12px var(--accent-glow);
 }
 
-/* ─── Create Box (Events Page) ──────────────────────────────── */
 .create-box {
   display: flex;
   justify-content: center;
@@ -292,7 +320,7 @@ button:active {
   min-width: 0;
 }
 
-/* ─── Event Cards ───────────────────────────────────────────── */
+
 .card-container {
   margin-top: 32px;
   display: flex;
@@ -315,7 +343,6 @@ button:active {
   overflow: hidden;
 }
 
-/* top color stripe on card */
 .card::before {
   content: '';
   position: absolute;
@@ -355,7 +382,6 @@ button:active {
   text-align: center;
 }
 
-/* ─── Tables ────────────────────────────────────────────────── */
 table {
   width: 88%;
   max-width: 900px;
@@ -402,14 +428,13 @@ table tbody tr:hover {
   background: rgba(124, 109, 250, 0.07);
 }
 
-/* Attendance checkboxes in table */
+
 td input[type="checkbox"] {
   width: 16px;
   height: 16px;
   transform: scale(1.2);
 }
 
-/* Delete buttons inside table */
 td button {
   padding: 6px 12px;
   font-size: 11px;
@@ -425,14 +450,12 @@ td button:hover {
   opacity: 1;
 }
 
-/* ─── Action button row (attendance page) ───────────────────── */
 #saveAttendance,
 #saveCSV,
 #backBtn:not(#backBtn) {
   margin: 6px 4px;
 }
 
-/* ─── Scrollbar ─────────────────────────────────────────────── */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -444,7 +467,6 @@ td button:hover {
   border-radius: 99px;
 }
 
-/* ─── Subtle fade-in animation ──────────────────────────────── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -517,7 +539,6 @@ h2 {
     opacity: 1;
 }
 
-/* ─── CSV Upload Section ───────────────────────────── */
 .csv-upload {
   display: flex;
   align-items: center;
@@ -538,7 +559,6 @@ h2 {
   box-shadow: var(--shadow-card);
 }
 
-/* File input styling */
 #csvFile {
   font-family: var(--font-body);
   font-size: 13px;
@@ -584,7 +604,6 @@ h2 {
   transform: translateY(0);
 }
 
-/* ─── INDEX PAGE FIX ───────────────────────────── */
 
 header {
   width: 100%;
