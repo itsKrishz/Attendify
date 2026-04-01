@@ -1,142 +1,533 @@
-body {
-    margin: 0;
-    padding: 20px;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #1e1e2f, #2a2a40);
-    color: white;
-    text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+/* ─── CSS Variables ─────────────────────────────────────────── */
+:root {
+  --bg-base:        #0d0d14;
+  --bg-surface:     #13131f;
+  --bg-card:        #1a1a2e;
+  --bg-card-hover:  #1f1f38;
+  --border:         rgba(120, 100, 255, 0.18);
+  --border-bright:  rgba(120, 100, 255, 0.45);
+
+  --accent:         #7c6dfa;
+  --accent-soft:    #a396ff;
+  --accent-glow:    rgba(124, 109, 250, 0.35);
+  --accent2:        #00e5c3;
+  --accent2-glow:   rgba(0, 229, 195, 0.2);
+
+  --text-primary:   #eeeef5;
+  --text-secondary: #9090b0;
+  --text-muted:     #55556a;
+
+  --danger:         #ff4d6d;
+  --success:        #00e5c3;
+
+  --radius-sm:      6px;
+  --radius-md:      12px;
+  --radius-lg:      18px;
+  --radius-xl:      24px;
+
+  --font-display:   'Space Mono', monospace;
+  --font-body:      'Outfit', sans-serif;
+
+  --shadow-card:    0 8px 32px rgba(0, 0, 0, 0.5);
+  --shadow-glow:    0 0 24px var(--accent-glow);
 }
 
+/* ─── Reset & Base ──────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  color: var(--text-primary);
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(124,109,250,0.15), transparent),
+    radial-gradient(circle at 80% 80%, rgba(0,229,195,0.12), transparent),
+    var(--bg-base);
+}
+
+/* ─── Typography ────────────────────────────────────────────── */
 h1 {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-size: 40px;
+  font-family: var(--font-display);
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+
+  background: linear-gradient(135deg, #fff 30%, var(--accent-soft));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 h2 {
-    font-size: 30px;
-    margin-bottom: 20px;
+  font-family: var(--font-display);
+  font-size: clamp(18px, 3vw, 26px);
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: var(--text-primary);
+  letter-spacing: -0.3px;
 }
 
+/* ─── Inputs ────────────────────────────────────────────────── */
 input[type="text"],
 input[type="password"] {
-    padding: 12px;
-    width: 240px;
-    border-radius: 8px;
-    border: none;
-    outline: none;
-    margin: 5px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  padding: 12px 16px;
+  width: 240px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  outline: none;
+  margin: 5px;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
 }
 
-button {
-    padding: 10px 14px;
-    border: none;
-    border-radius: 8px;
-    background: linear-gradient(135deg, #6a5cff, #8b7cff);
-    color: white;
-    cursor: pointer;
-    font-size: 14px;
-    transition: 0.2s;
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
+  color: var(--text-muted);
 }
 
-button:hover {
-    opacity: 0.9;
-}
-
-.create-box {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    gap: 10px;
-}
-
-.card-container {
-    margin-top: 30px;
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.card {
-    background: #2f2f4a;
-    width: 240px;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    transition: transform 0.2s ease;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-}
-
-.card h3 {
-    margin-bottom: 15px;
-    color: white;
-}
-
-.card button {
-    width: 100%;
-    margin: 5px 0;
-}
-
-table {
-    width: 80%;
-    margin: 20px auto;
-    border-collapse: collapse;
-    background-color: #2f2f4a;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-th {
-    background: linear-gradient(135deg, #6a5cff, #8b7cff);
-    color: white;
-    padding: 12px;
-    text-align: center;
-    font-weight: bold;
-}
-
-td {
-    padding: 10px;
-    text-align: center;
-    color: white;
-}
-
-table tr:hover {
-    background-color: rgba(255,255,255,0.05);
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: var(--accent);
+  background: rgba(124, 109, 250, 0.06);
+  box-shadow: 0 0 0 3px var(--accent-glow);
 }
 
 input[type="checkbox"] {
-    cursor: pointer;
+  accent-color: var(--ccent);
+  cursor: pointer;
+  width: 14px;
+  height: 14px;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+ #certModal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.75);
+        backdrop-filter: blur(6px);
+        z-index: 999;
+        justify-content: center;
+        align-items: center;
+        animation: fadeUp 0.25s ease both;
+    }
+    #certModal.open {
+        display: flex;
+    }
+    #certBox {
+        background: var(--bg-card);
+        border: 1px solid var(--border-bright);
+        border-radius: var(--radius-xl);
+        padding: 28px;
+        box-shadow: 0 24px 64px rgba(0,0,0,0.6), 0 0 40px var(--accent-glow);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        max-width: 95vw;
+    }
+    #certBox h3 {
+        font-family: var(--font-display);
+        color: var(--accent-soft);
+        font-size: 14px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin: 0;
+    }
+    #certCanvas {
+        border-radius: var(--radius-md);
+        border: 1px solid var(--border);
+        max-width: 100%;
+    }
+    .cert-actions {
+        display: flex;
+        gap: 12px;
+        margin-top: 4px;
+    }
+    .cert-actions button {
+        min-width: 130px;
+    }
+    #closeCert {
+        background: transparent;
+        border: 1px solid var(--border-bright);
+        color: var(--accent-soft);
+    }
+    #closeCert:hover {
+        background: rgba(124,109,250,0.1);
+    }
+
+    /* cert button inside table */
+    td .cert-btn {
+        background: transparent;
+        border: 1px solid rgba(0,229,195,0.4) !important;
+        color: var(--accent2) !important;
+        margin-left: 6px;
+        font-size: 11px;
+        padding: 5px 10px;
+    }
+    td .cert-btn:hover {
+        background: var(--accent2-glow) !important;
+        box-shadow: 0 0 10px var(--accent2-glow) !important;
+        opacity: 1 !important;
+    }
+    td .cert-btn:disabled {
+        opacity: 0.25 !important;
+        cursor: not-allowed;
+        border-color: var(--border) !important;
+        color: var(--text-muted) !important;
+    }
+
+button {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  padding: 10px 18px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--accent), var(--accent-soft));
+  color: #fff;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.15s, box-shadow 0.15s;
+  position: relative;
+  overflow: hidden;
+}
+
+button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0);
+  transition: background 0.15s;
+  border-radius: inherit;
+}
+
+button:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 18px var(--accent-glow);
+}
+
+button:hover::after {
+  background: rgba(255,255,255,0.06);
+}
+
+button:active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Ghost / secondary buttons */
+#backBtn,
+#logoutBtn {
+  background: transparent;
+  border: 1px solid var(--border-bright);
+  color: var(--accent-soft);
+  font-size: 12px;
+  padding: 8px 14px;
+}
+
+#backBtn:hover,
+#logoutBtn:hover {
+  background: rgba(124, 109, 250, 0.1);
+  box-shadow: 0 0 12px var(--accent-glow);
 }
 
 #backBtn {
-    position: fixed;
-    top: 10px;
-    left: 10px;
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  z-index: 100;
 }
 
+#logoutBtn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+}
+
+/* Export / Save buttons */
+#saveCSV,
+#saveAttendance {
+  background: transparent;
+  border: 1px solid var(--accent2);
+  color: var(--accent2);
+}
+
+#saveCSV:hover,
+#saveAttendance:hover {
+  background: var(--accent2-glow);
+  box-shadow: 0 0 14px var(--accent2-glow);
+  opacity: 1;
+}
+
+/* ─── Login Page ────────────────────────────────────────────── */
 .login-container {
-    background: #2f2f4a;
-    padding: 40px;
-    border-radius: 15px;
-    width: 320px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  width: 340px;
+  padding: 40px;
+  border-radius: 20px;
+
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+
+}
+
+.login-container h1 {
+  margin-top: 0;
+  margin-bottom: 28px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 8px;
 }
 
 .input-group input {
-    width: 100%;
-    margin-bottom: 12px;
+  width: 100%;
+}
+
+.input-group label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  align-self: flex-start;
+  margin-left: 2px;
+  cursor: pointer;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 16px;
 }
 
 .button-group button {
-    width: 100%;
-    margin-top: 10px;
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+}
+
+/* Sign up button — outlined style */
+#signupBtn {
+  background: transparent;
+  border: 1px solid var(--border-bright);
+  color: var(--accent-soft);
+}
+
+#signupBtn:hover {
+  background: rgba(124, 109, 250, 0.1);
+  box-shadow: 0 0 12px var(--accent-glow);
+}
+
+/* ─── Create Box (Events Page) ──────────────────────────────── */
+.create-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 24px;
+  padding: 20px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.create-box input {
+  flex: 1;
+  width: auto;
+  min-width: 0;
+}
+
+/* ─── Event Cards ───────────────────────────────────────────── */
+.card-container {
+  margin-top: 32px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-bottom: 40px;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  width: 230px;
+  padding: 24px 20px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.2s ease, border-color 0.2s, box-shadow 0.2s;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+/* top color stripe on card */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: var(--border-bright);
+  box-shadow: var(--shadow-card), var(--shadow-glow);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card h3 {
+  margin-bottom: 16px;
+  color: var(--text-primary);
+  font-size: 15px;
+  font-weight: 600;
+  font-family: var(--font-display);
+  letter-spacing: -0.2px;
+  line-height: 1.3;
+  word-break: break-word;
+}
+
+.card button {
+  width: 100%;
+  margin: 5px 0;
+  font-size: 12px;
+  padding: 9px 12px;
+  text-align: center;
+}
+
+/* ─── Tables ────────────────────────────────────────────────── */
+table {
+  width: 88%;
+  max-width: 900px;
+  margin: 24px auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+th {
+  background: linear-gradient(135deg, rgba(124,109,250,0.35), rgba(124,109,250,0.15));
+  color: var(--accent-soft);
+  padding: 14px 16px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-family: var(--font-display);
+  border-bottom: 1px solid var(--border);
+}
+
+td {
+  padding: 12px 16px;
+  text-align: center;
+  color: var(--text-primary);
+  font-size: 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+table tr:last-child td {
+  border-bottom: none;
+}
+
+table tbody tr {
+  transition: background 0.15s;
+}
+
+table tbody tr:hover {
+  background: rgba(124, 109, 250, 0.07);
+}
+
+/* Attendance checkboxes in table */
+td input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  transform: scale(1.2);
+}
+
+/* Delete buttons inside table */
+td button {
+  padding: 6px 12px;
+  font-size: 11px;
+  background: transparent;
+  border: 1px solid rgba(255, 77, 109, 0.4);
+  color: var(--danger);
+  border-radius: var(--radius-sm);
+}
+
+td button:hover {
+  background: rgba(255, 77, 109, 0.12);
+  box-shadow: 0 0 10px rgba(255, 77, 109, 0.2);
+  opacity: 1;
+}
+
+/* ─── Action button row (attendance page) ───────────────────── */
+#saveAttendance,
+#saveCSV,
+#backBtn:not(#backBtn) {
+  margin: 6px 4px;
+}
+
+/* ─── Scrollbar ─────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-bright);
+  border-radius: 99px;
+}
+
+/* ─── Subtle fade-in animation ──────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.login-container,
+.card,
+table,
+.create-box {
+  animation: fadeUp 0.35s ease both;
 }

@@ -2,7 +2,7 @@ var params = new URLSearchParams(window.location.search);
 var eventName = params.get("event");
 
 document.getElementById("eventTitle").innerText =
-    eventName+"Register Students";
+    eventName+" Register Students";
 
 var students = JSON.parse(localStorage.getItem(eventName)) || [];
 for (var i = 0; i < students.length; i++) {
