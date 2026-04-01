@@ -49,104 +49,17 @@ body {
   font-family: 'Outfit', sans-serif;
   color: var(--text-primary);
   min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   background:
     radial-gradient(circle at 20% 20%, rgba(124,109,250,0.15), transparent),
     radial-gradient(circle at 80% 80%, rgba(0,229,195,0.12), transparent),
     var(--bg-base);
 }
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background: var(--bg-surface);
-    border-bottom: 1px solid var(--border);
-}
-.logo a {
-    font-family: var(--font-display);
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--text-primary);
-    text-decoration: none;
-}
-nav ul {
-    display: flex;
-    list-style: none;
-}
 
-nav li {
-    margin: 20px;
-}
-
-nav a {
-    font-family: var(--font-body);
-    font-size: 16px;
-    color: var(--text-secondary);
-    text-decoration: none;
-    transition: color 0.2s;
-}
-
-nav a:hover {
-    color: var(--text-primary);
-}
-
-.hero {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 100px 20px;
-}
-
-.hero-content h1{
-    font-size : 48px;
-}
-.hero-content p {
-    font-size: 18px;
-    color: var(--text-secondary);
-    margin-bottom: 30px;
-}
-.hero-content {
-    max-width: 800px;
-}
-.cta-button {
-    font-family: var(--font-body);
-    font-size: 16px;
-    font-weight: 600;
-    padding: 12px 24px;
-    border-radius: var(--radius-md);
-    background: linear-gradient(135deg, var(--accent), var(--accent-soft));
-    color: #fff;
-    text-decoration: none;
-    transition: opacity 0.15s, transform 0.15s, box-shadow 0.15s;
-}
-
-.cta-button:hover {
-    opacity: 0.92;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 18px var(--accent-glow);
-}
-
-/* Features Section */
-.features {
-    text-align: center;
-    padding: 50px 20px;
-}
-
-.feature-cards {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 30px;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    background: var(--bg-surface);
-    border-top: 1px solid var(--border);
-    margin-top: 50px;
-}
 /* ─── Typography ────────────────────────────────────────────── */
 h1 {
   font-family: var(--font-display);
@@ -155,7 +68,7 @@ h1 {
   letter-spacing: -0.5px;
   margin-top: 24px;
   margin-bottom: 24px;
-  text-align: center;
+
   background: linear-gradient(135deg, #fff 30%, var(--accent-soft));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -166,83 +79,9 @@ h2 {
   font-family: var(--font-display);
   font-size: clamp(18px, 3vw, 26px);
   font-weight: 700;
-  text-align:center;
   margin-bottom: 24px;
   color: var(--text-primary);
   letter-spacing: -0.3px;
-}
-/* ─── REGISTER PAGE FIX ───────────────────────── */
-
-/* Container */
-.register-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-/* Input row */
-.input-row {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-
-    background: var(--bg-surface);
-    padding: 20px;
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--border);
-
-    box-shadow: var(--shadow-card);
-}
-
-/* Inputs inside row */
-.input-row input {
-    width: 220px;
-    margin: 0;
-}
-
-/* Button alignment */
-.input-row button {
-    height: 44px;
-    padding: 0 20px;
-}
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 100;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.5);
-}
-
-.modal-content {
-    background-color: var(--bg-card);
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    width: 80%;
-    max-width: 400px;
-    position: relative;
-}
-
-.close {
-    color: var(--text-muted);
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close:hover,
-.close:focus {
-    color: var(--text-primary);
 }
 
 /* ─── Inputs ────────────────────────────────────────────────── */
@@ -274,7 +113,7 @@ input[type="password"]:focus {
 }
 
 input[type="checkbox"] {
-  accent-color: var(--accent);
+  accent-color: var(--ccent);
   cursor: pointer;
   width: 14px;
   height: 14px;
@@ -369,42 +208,33 @@ button:active {
 
 /* ─── Login Page ────────────────────────────────────────────── */
 .login-container {
-    width: 360px;
-    padding: 42px 36px;
-    border-radius: 24px;
+  width: 340px;
+  padding: 40px;
+  border-radius: 20px;
 
-    background: linear-gradient(
-        145deg,
-        rgba(30,30,50,0.95),
-        rgba(15,15,30,0.98)
-    );
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
 
-    border: 1px solid var(--border);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
 
-    box-shadow:
-        0 10px 40px rgba(0,0,0,0.6),
-        0 0 25px var(--accent-glow);
-
-    animation: fadeUp 0.35s ease;
 }
-
 
 .login-container h1 {
-    text-align: center;
-    margin-bottom: 28px;
+  margin-top: 0;
+  margin-bottom: 28px;
 }
 
-/* Inputs */
 .input-group {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 8px;
 }
 
 .input-group input {
-    width: 100%;
-    padding: 14px;
-    border-radius: 12px;
+  width: 100%;
 }
 
 .input-group label {
@@ -414,51 +244,32 @@ button:active {
   margin-left: 2px;
   cursor: pointer;
 }
-.password-wrapper {
-    position: relative;
-    width: 100%;
-}
-
-.password-wrapper input {
-    padding-right: 42px;
-}
-#togglePassword {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    color: var(--text-muted);
-    transition: 0.2s;
-}
-
-#togglePassword:hover {
-    color: var(--accent-soft);
-}
 
 .button-group {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 16px;
 }
 
 .button-group button {
-    width: 100%;
-    padding: 14px;
-    font-size: 14px;
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
 }
 
-/* Signup secondary button */
+/* Sign up button — outlined style */
 #signupBtn {
-    background: transparent;
-    border: 1px solid var(--border-bright);
-    color: var(--accent-soft);
+  background: transparent;
+  border: 1px solid var(--border-bright);
+  color: var(--accent-soft);
 }
+
 #signupBtn:hover {
-    background: rgba(124,109,250,0.1);
-    box-shadow: 0 0 14px var(--accent-glow);
+  background: rgba(124, 109, 250, 0.1);
+  box-shadow: 0 0 12px var(--accent-glow);
 }
+
 /* ─── Create Box (Events Page) ──────────────────────────────── */
 .create-box {
   display: flex;
@@ -645,61 +456,129 @@ table,
 .create-box {
   animation: fadeUp 0.35s ease both;
 }
+/* ─── Attendance Page Layout ────────────────────────────────── */
+body {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+body.login-page {
+    justify-content: center;
+    padding-top: 0;
+}
+
+h2 {
+    margin-top: 48px;
+    margin-bottom: 28px;
+}
+
+.action-bar {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 16px 24px;
+    margin-bottom: 8px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    width: 88%;
+    max-width: 900px;
+}
+
 #exportCertificates {
-  background: transparent;
-  border: 1px solid var(--border-bright);
-  color: var(--accent-soft);
+    background: transparent;
+    border: 1px solid var(--border-bright);
+    color: var(--accent-soft);
 }
 
 #exportCertificates:hover {
-  background: rgba(124, 109, 250, 0.1);
-  box-shadow: 0 0 12px var(--accent-glow);
+    background: rgba(124, 109, 250, 0.1);
+    box-shadow: 0 0 12px var(--accent-glow);
 }
 
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 999;
-    inset: 0;
-
-    background: rgba(10,10,20,0.7);
-    backdrop-filter: blur(10px);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.modal-content {
-    position: relative;
+#saveCSV,
+#saveAttendance {
     background: transparent;
-    border: none;
-    padding: 0;
+    border: 1px solid var(--accent2);
+    color: var(--accent2);
 }
 
-/* Close button */
-.close {
-    position: absolute;
-    top: -12px;
-    right: -12px;
-
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    color: var(--text-muted);
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.2s;
+#saveCSV:hover,
+#saveAttendance:hover {
+    background: var(--accent2-glow);
+    box-shadow: 0 0 14px var(--accent2-glow);
+    opacity: 1;
 }
 
-.close:hover {
-    color: var(--accent-soft);
-    background: var(--bg-card-hover);
+/* ─── CSV Upload Section ───────────────────────────── */
+.csv-upload {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  margin: 20px auto;
+  padding: 16px 20px;
+
+  width: 88%;
+  max-width: 900px;
+
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-card);
+}
+
+/* File input styling */
+#csvFile {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--text-secondary);
+
+  padding: 8px;
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--border-bright);
+
+  background: rgba(255,255,255,0.03);
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+#csvFile:hover {
+  border-color: var(--accent);
+  background: rgba(124, 109, 250, 0.08);
+}
+
+/* Upload button */
+#uploadCSV {
+  background: linear-gradient(135deg, var(--accent2), #00c9a7);
+  color: #000;
+
+  font-weight: 600;
+  letter-spacing: 0.3px;
+
+  border: none;
+  border-radius: var(--radius-md);
+
+  padding: 10px 16px;
+
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+#uploadCSV:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 16px var(--accent2-glow);
+}
+
+#uploadCSV:active {
+  transform: translateY(0);
 }

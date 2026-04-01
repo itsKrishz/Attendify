@@ -69,3 +69,59 @@ function addRow(student) {
 backBtn.onclick = function(){
     window.history.back();
 }
+
+document.getElementById("uploadCSV").onclick = function () {
+
+    var fileInput = document.getElementById("csvFile");
+
+    if (!fileInput.files.length) {
+        alert("Please select a CSV file");
+        return;
+    }
+
+    var file = fileInput.files[0];
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+        var text = e.target.result;
+
+        // Split into lines
+        var lines = text.split("\n");
+
+        for (var i = 1; i < lines.length; i++) { // skip header row
+
+            var cols = lines[i].split(",");
+
+            if (cols.length < 3) continue;
+
+            var name = cols[0].trim();
+            var reg = cols[1].trim();
+            var phone = cols[2].trim();
+
+            // Skip empty rows
+            if (name === "" || reg === "" || phone === "") continue;
+
+            // Check duplicate reg number
+            var exists = students.some(function (s) {
+                return s.reg.toLowerCase() === reg.toLowerCase();
+            });
+
+            if (exists) continue;
+
+            var student = {
+                name: name,
+                reg: reg,
+                phone: phone
+            };
+
+            students.push(student);
+            addRow(student);
+        }
+
+        localStorage.setItem(eventName, JSON.stringify(students));
+
+        alert("CSV uploaded successfully!");
+    };
+
+    reader.readAsText(file);
+};
