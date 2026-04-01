@@ -58,12 +58,18 @@ loginBtn.onclick = function(){
 };
 
 
-var showPassword = document.getElementById("showPassword")
+var togglePassword = document.getElementById("togglePassword");
+var eyeOpen = document.getElementById("eyeOpen");
+var eyeClosed = document.getElementById("eyeClosed");
 
-showPassword.onclick = function(){
-    if(passInput.type ==="password"){
+togglePassword.onclick = function () {
+    if (passInput.type === "password") {
         passInput.type = "text";
-    }else{
-        passInput.type ="password";
+        eyeOpen.style.display = "none";
+        eyeClosed.style.display = "block";
+    } else {
+        passInput.type = "password";
+        eyeOpen.style.display = "block";
+        eyeClosed.style.display = "none";
     }
 };

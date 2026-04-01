@@ -9,15 +9,25 @@
 <body>
 
 <div class="login-container">
-    <h1>Attendify</h1>
+    <h1 style="text-align: center;">Attendify</h1>
 
     <div class="input-group">
         <input type="text" id="clubId" placeholder="Club ID">
-        <input type="password" id="password" placeholder="Password">
-        
-        <label style="font-size: 14px">
-            <input type="checkbox" id ="showPassword">Show Password
-        </label>
+        <div class="password-wrapper">
+            <input type="password" id="password" placeholder="Password">
+            <span id="togglePassword">
+                <svg id="eyeOpen" xmlns="http://www.w3.org/2000/svg" width="15" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                    <circle cx="12" cy="12" r="3"/>
+                </svg>
+
+                <svg id="eyeClosed" xmlns="http://www.w3.org/2000/svg" width="15" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:none;">
+                    <path d="M17.94 17.94A10.94 10.94 0 0 1 12 20c-7 0-11-8-11-8a21.77 21.77 0 0 1 5.06-6.94"/>
+                    <path d="M1 1l22 22"/>
+                    <path d="M9.53 9.53A3 3 0 0 0 12 15a3 3 0 0 0 2.47-5.47"/>
+                </svg>
+            </span>
+        </div>
     </div>
 
     <div class="button-group">

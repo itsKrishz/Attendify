@@ -11,28 +11,17 @@
 <button id="saveAttendance">Save Attendance</button>
 <button id="saveCSV">Export CSV</button>
 <button type="button" id="backBtn">Go Back</button>
-
+<button id="exportCertificates">Export Certificates</button>
 <table id="attendanceTable">
     <tr>
         <th>Name</th>
         <th>Reg No</th>
         <th>Phone</th>
         <th>Present</th>
-        <th>Certificate</th>
     </tr>
 </table>
 
-<!-- Certificate Modal -->
-<div id="certModal">
-    <div id="certBox">
-        <h3>🎓 Participation Certificate</h3>
-        <canvas id="certCanvas" width="720" height="480"></canvas>
-        <div class="cert-actions">
-            <button id="downloadCert">⬇ Download PNG</button>
-            <button id="closeCert">Close</button>
-        </div>
-    </div>
-</div>
+<canvas id="certCanvas" width="900" height="560" style="display:none;"></canvas>
 
 <script src="attendance.js"></script>
 </body>

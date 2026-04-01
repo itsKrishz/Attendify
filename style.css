@@ -120,83 +120,8 @@ input[type="checkbox"] {
   vertical-align: middle;
   margin-right: 4px;
 }
- #certModal {
-        display: none;
-        position: fixed;
-        inset: 0;
-        background: rgba(0,0,0,0.75);
-        backdrop-filter: blur(6px);
-        z-index: 999;
-        justify-content: center;
-        align-items: center;
-        animation: fadeUp 0.25s ease both;
-    }
-    #certModal.open {
-        display: flex;
-    }
-    #certBox {
-        background: var(--bg-card);
-        border: 1px solid var(--border-bright);
-        border-radius: var(--radius-xl);
-        padding: 28px;
-        box-shadow: 0 24px 64px rgba(0,0,0,0.6), 0 0 40px var(--accent-glow);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 16px;
-        max-width: 95vw;
-    }
-    #certBox h3 {
-        font-family: var(--font-display);
-        color: var(--accent-soft);
-        font-size: 14px;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        margin: 0;
-    }
-    #certCanvas {
-        border-radius: var(--radius-md);
-        border: 1px solid var(--border);
-        max-width: 100%;
-    }
-    .cert-actions {
-        display: flex;
-        gap: 12px;
-        margin-top: 4px;
-    }
-    .cert-actions button {
-        min-width: 130px;
-    }
-    #closeCert {
-        background: transparent;
-        border: 1px solid var(--border-bright);
-        color: var(--accent-soft);
-    }
-    #closeCert:hover {
-        background: rgba(124,109,250,0.1);
-    }
 
-    /* cert button inside table */
-    td .cert-btn {
-        background: transparent;
-        border: 1px solid rgba(0,229,195,0.4) !important;
-        color: var(--accent2) !important;
-        margin-left: 6px;
-        font-size: 11px;
-        padding: 5px 10px;
-    }
-    td .cert-btn:hover {
-        background: var(--accent2-glow) !important;
-        box-shadow: 0 0 10px var(--accent2-glow) !important;
-        opacity: 1 !important;
-    }
-    td .cert-btn:disabled {
-        opacity: 0.25 !important;
-        cursor: not-allowed;
-        border-color: var(--border) !important;
-        color: var(--text-muted) !important;
-    }
-
+/* ─── Buttons ───────────────────────────────────────────────── */
 button {
   font-family: var(--font-body);
   font-size: 13px;
@@ -530,4 +455,14 @@ td button:hover {
 table,
 .create-box {
   animation: fadeUp 0.35s ease both;
+}
+#exportCertificates {
+  background: transparent;
+  border: 1px solid var(--border-bright);
+  color: var(--accent-soft);
+}
+
+#exportCertificates:hover {
+  background: rgba(124, 109, 250, 0.1);
+  box-shadow: 0 0 12px var(--accent-glow);
 }
